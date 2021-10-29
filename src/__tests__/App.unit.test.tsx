@@ -20,8 +20,18 @@ describe("<App />",()=>{
     expect(appComponent.length).toBe(1);
   });
   test('counter starts at 0',()=>{
-    // const wrapper = setup();
-    // const appComponent = findByTestArr(wrapper,"app-component");
-    // expect(appComponent.length).toBe(1);
+    const wrapper = setup();
+    const appComponent = findByTestArr(wrapper,"count").text();
+    expect(appComponent).toBe("0");
   });
+  test('clicking on button increments counter display',()=>{
+    const wrapper = setup();
+     //find the button
+    const button = findByTestArr(wrapper,"increment-button");
+     //click the button
+    button.simulate('click');
+     //find the display and test that the number has been incremented
+     const appComponent = findByTestArr(wrapper,"count").text();
+     expect(appComponent).toBe("1");
+  })
 })
