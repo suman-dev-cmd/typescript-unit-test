@@ -40,10 +40,11 @@ describe('if there are words guessed',()=>{
         expect(component.length).toBe(1);
     });
     test('renders "guessed words" section',()=>{
-        const intructions = findByTestAttr(warrper,'guess-instructions');
-        expect(intructions.text().length).not.toBe(0);
+        const guessedWordDiv = findByTestAttr(warrper,'guessed-words');
+        expect(guessedWordDiv.text().length).not.toBe(0);
     });
     test('correct number of guessed word',()=>{
-
+        const guesswordsNode = findByTestAttr(warrper,'guessed-word');
+        expect(guesswordsNode.length).toBe(guessedWords.length);
     })
 });
